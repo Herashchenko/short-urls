@@ -1,0 +1,15 @@
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+url:
+    path: /url
+    controller: App\Controller\DefaultController::createUrl
+index_redirect:
+    path: /{shortCode}
+    controller: App\Controller\DefaultController::indexRedirect
+show_statistics:
+    path: /{shortCode}/statistics
+    controller: App\Controller\StatisticsController::showStatistics
+chart_data_statistics:
+    path: /{shortCode}/statistics/chart_data
+    controller: App\Controller\StatisticsController::chartData

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block page_contents %}
+        <div class="form-url-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1 class="head-title">Short Url — скоротіть посилання</h1>
+                        <div class="form-group justify-content-center d-flex">
+                            <div class="col-sm-12">
+                                <form id="main-form" class="form-inline" action="{{ formAction }}" method="post">
+                                    <input type="hidden" name="token" value="{{ csrf_token('url') }}">
+                                    <input type="text" id="input-url" class="form-control url-input" name="url_from" required placeholder="Вставте посилання для скорочення">
+                                    <label for="date">Діятиме до:</label>
+                                    <div class="input-group date">
+                                        <input id="date" type="text" class="form-control" name="expiration_date" readonly placeholder="{{ "now"|date("d.m.Y") }}">
+                                        <span class="input-group-addon d-none"></span>
+                                    </div>
+                                    <button class="btn btn-danger" id="button-submit">Скоротити</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <table class="table">
+                <tbody>
+                    {% for url in urls %}
+                        <tr>
+                            <th scope="row">{{ url.urlFrom }}</th>
+                            <th scope="col"><div class="copy-link">{{ url('index') }}{{ url.shortCode }}</div></th>
+                            <th scope="col"><button class="btn btn-success mr-2 copy-btn">Копіювати</button></th>
+                            <th scope="col">
+                                <a target="_blank" class="sht-link" href="{{ url('show_statistics', {shortCode: url.shortCode}) }}">
+                                    статистика
+                                </a>
+                            </th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endblock %}
+{% endblock %}

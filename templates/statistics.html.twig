@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    <script>
+        var route = "{{ path('chart_data_statistics', {'shortCode': url.shortCode})|escape('js') }}";
+    </script>
+    {{ encore_entry_script_tags('chart') }}
+{% endblock %}
+
+{% block body %}
+    {% block page_contents %}
+        <div class="container">
+            <div class="col-sm-12">
+                <div class="statistics">
+                    <div class="card">
+                        <div class="card-header">
+                            Статистика переходів {{ url('index') }}{{ url.shortCode }} -> {{ url.urlFrom }}
+                        </div>
+                        <div class="card-body">
+                            <canvas id="chart" class="chart-bar"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Браузери
+                            </div>
+                            <div class="card-body">
+                                <canvas id="browser" class="chart-bar"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Операційні системи
+                            </div>
+                            <div class="card-body">
+                                <canvas id="platform" class="chart-bar"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

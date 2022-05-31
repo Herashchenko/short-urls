@@ -1,0 +1,57 @@
+.form-url-block {
+    background: cornflowerblue;
+    padding-bottom: 1.5em;
+    margin-bottom: 1em;
+}
+
+.head-title {
+    text-align: center;
+    margin-top: 3em;
+}
+
+.url-input {
+    display: inline-block;
+    width: 25em;
+}
+
+.form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group.date {
+    width: 15em;
+}
+
+.form-control {
+    margin: 0.5em;
+}
+
+.statistics {
+    padding: 2em 0;
+}
+
+header {
+    box-shadow: 0 8px 8px -10px rgba(0, 0, 0, .35);
+}
+
+.home-link {
+    color: #404244;
+    text-decoration: none;
+}
+
+.v-middle {
+    vertical-align: middle;
+}
+
+.home-link .logo {
+    width: 5em;
+    padding: 0.2em 0.2em 0.2em 2em;
+}
+
+.chart-bar {
+    max-height: 20em;
+    height: 20em;
+}
